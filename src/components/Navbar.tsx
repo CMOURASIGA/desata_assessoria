@@ -1,5 +1,6 @@
-import { Phone } from 'lucide-react';
+import { Phone, Menu, X, Instagram } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,15 +22,27 @@ export default function Navbar() {
     { label: 'Dúvidas', href: '#faq' },
   ];
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center bg-white/80 backdrop-blur-md md:bg-transparent rounded-2xl md:rounded-none py-3 md:py-0 px-5 md:px-6 shadow-sm md:shadow-none">
-        <a href="#" className="flex items-center gap-3 group">
-           <div className="relative w-12 h-12 overflow-hidden rounded-full border border-surface shadow-sm bg-white p-1">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center transition-all duration-300">
+        <a href="#" className="flex items-center gap-3 group relative z-50">
+           <div className={`relative w-10 h-10 md:w-12 md:h-12 overflow-hidden rounded-full border border-surface shadow-sm bg-white p-1 transition-all duration-300 ${scrolled ? 'scale-90' : 'scale-100'}`}>
              <img 
                src="https://i.imgur.com/6jUNq5C.png" 
                alt="Desata Logo" 
@@ -38,10 +51,10 @@ export default function Navbar() {
              />
            </div>
            <div className="flex flex-col">
-             <span className="font-serif text-[28px] text-primary leading-none font-medium">
+             <span className={`font-serif text-2xl md:text-[28px] text-primary leading-none font-medium transition-all duration-300 ${scrolled ? 'text-xl md:text-2xl' : ''}`}>
                Desata
              </span>
-             <span className="text-ink text-[8.5px] font-bold tracking-[0.05em] uppercase leading-none mt-1">
+             <span className={`text-ink text-[7px] md:text-[8.5px] font-bold tracking-[0.05em] uppercase leading-none mt-1 transition-all duration-300 ${scrolled ? 'hidden md:block' : ''}`}>
                Assessoria Imobiliária
              </span>
            </div>
@@ -71,41 +84,74 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="lg:hidden p-2 text-ink"
+          className={`lg:hidden relative z-50 p-2 transition-colors rounded-full ${mobileMenuOpen ? 'text-white' : scrolled ? 'text-ink' : 'text-primary'}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          <div className="w-6 h-0.5 bg-current mb-1.5 transition-all" style={{ transform: mobileMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : '' }}></div>
-          <div className="w-6 h-0.5 bg-current mb-1.5 transition-all" style={{ opacity: mobileMenuOpen ? 0 : 1 }}></div>
-          <div className="w-6 h-0.5 bg-current transition-all" style={{ transform: mobileMenuOpen ? 'rotate(-45deg) translate(4px, -4px)' : '' }}></div>
+          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-surface py-4 px-6 flex flex-col gap-4">
-          {menuItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-base font-medium text-ink hover:text-primary block py-2 border-b border-surface/50"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item.label}
-            </a>
-          ))}
-          <a
-            href="https://api.whatsapp.com/send?phone=5521988758907&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnr3VqBkKkRPKo-ZXWKg9CoNrvPSg8Oi8YVwL5gR_ZSsbLzXFJ95KErkzcGxA_aem_vAi5yAHvdSXP2OpkGeljqg"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileMenuOpen(false)}
-            className="inline-flex justify-center items-center gap-2 bg-primary text-white w-full px-5 py-3 rounded-full text-sm font-medium mt-2"
+      {/* Mobile Menu Dropdown - Improved with full-screen overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="lg:hidden fixed inset-0 z-40 bg-primary flex flex-col pt-32 px-8 pb-12 overflow-y-auto"
           >
-            <Phone size={16} />
-            Falar Conosco
-          </a>
-        </div>
-      )}
+            <div className="flex flex-col gap-6 items-start">
+              {menuItems.map((item, index) => (
+                <motion.a
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + index * 0.05 }}
+                  key={item.href}
+                  href={item.href}
+                  className="text-3xl font-serif text-white hover:text-primary-light transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </motion.a>
+              ))}
+            </div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="mt-auto pt-10 border-t border-white/10"
+            >
+              <a
+                href="https://api.whatsapp.com/send?phone=5521988758907&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnr3VqBkKkRPKo-ZXWKg9CoNrvPSg8Oi8YVwL5gR_ZSsbLzXFJ95KErkzcGxA_aem_vAi5yAHvdSXP2OpkGeljqg"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="inline-flex justify-center items-center gap-2 bg-white text-primary w-full px-5 py-4 rounded-xl text-lg font-bold shadow-lg"
+              >
+                <Phone size={20} />
+                WhatsApp
+              </a>
+              
+              <div className="flex items-center justify-center gap-6 mt-8">
+                <a 
+                  href="https://www.instagram.com/desataassessoria/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-white"
+                >
+                  <Instagram size={24} />
+                </a>
+                <span className="text-white/40 text-xs uppercase tracking-widest font-bold font-mono">
+                  Siga-nos
+                </span>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

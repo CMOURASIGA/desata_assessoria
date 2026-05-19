@@ -33,68 +33,68 @@ export default function Contact() {
   };
 
   return (
-    <section id="contato" className="py-24 bg-white relative">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16">
-          <div>
-            <h2 className="text-3xl md:text-5xl font-display font-semibold text-ink mb-4">
+    <section id="contato" className="py-16 md:py-24 bg-white relative">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          <div className="text-center lg:text-left">
+            <h2 className="text-[32px] md:text-5xl font-display font-semibold text-ink mb-4">
               Vamos <span className="italic font-light text-primary">conversar?</span>
             </h2>
-            <p className="text-lg text-ink/70 mb-10 max-w-md leading-relaxed">
+            <p className="text-base md:text-lg text-ink/70 mb-8 md:mb-10 max-w-md mx-auto lg:mx-0 leading-relaxed font-light">
               Deixe seus processos nas mãos de quem entende do assunto. Entre em contato para darmos o primeiro passo rumo à realização do seu plano.
             </p>
 
-            <div className="space-y-6 mb-12">
-              <a href="https://api.whatsapp.com/send?phone=5521988758907&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnr3VqBkKkRPKo-ZXWKg9CoNrvPSg8Oi8YVwL5gR_ZSsbLzXFJ95KErkzcGxA_aem_vAi5yAHvdSXP2OpkGeljqg" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-full bg-surface flex items-center justify-center group-hover:bg-primary transition-colors">
+            <div className="space-y-5 mb-10 text-left">
+              <a href="https://api.whatsapp.com/send?phone=5521988758907&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnr3VqBkKkRPKo-ZXWKg9CoNrvPSg8Oi8YVwL5gR_ZSsbLzXFJ95KErkzcGxA_aem_vAi5yAHvdSXP2OpkGeljqg" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group bg-surface/50 p-3 rounded-2xl border border-ink/5 md:bg-transparent md:p-0 md:border-0">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface flex items-center justify-center group-hover:bg-primary transition-colors shrink-0">
                   <Phone className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
                 </div>
-                <div>
-                  <div className="text-sm text-ink/60 font-medium">WhatsApp / Telefone</div>
-                  <div className="text-ink font-semibold group-hover:text-primary transition-colors">(21) 98875-8907</div>
+                <div className="min-w-0">
+                  <div className="text-[11px] md:text-sm text-ink/40 font-bold uppercase tracking-wider">WhatsApp / Telefone</div>
+                  <div className="text-ink font-bold group-hover:text-primary transition-colors break-all">(21) 98875-8907</div>
                 </div>
               </a>
 
-              <a href="mailto:priscilla.gomide@desataassessoria.com.br" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-full bg-surface flex items-center justify-center group-hover:bg-primary transition-colors">
+              <a href="mailto:priscilla.gomide@desataassessoria.com.br" className="flex items-center gap-4 group bg-surface/50 p-3 rounded-2xl border border-ink/5 md:bg-transparent md:p-0 md:border-0">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface flex items-center justify-center group-hover:bg-primary transition-colors shrink-0">
                   <Mail className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
                 </div>
-                <div>
-                  <div className="text-sm text-ink/60 font-medium">E-mail</div>
-                  <div className="text-ink font-semibold group-hover:text-primary transition-colors">priscilla.gomide@desataassessoria.com.br</div>
+                <div className="min-w-0">
+                  <div className="text-[11px] md:text-sm text-ink/40 font-bold uppercase tracking-wider">E-mail</div>
+                  <div className="text-ink font-bold group-hover:text-primary transition-colors break-all text-sm md:text-base">priscilla.gomide@desataassessoria.com.br</div>
                 </div>
               </a>
 
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-surface flex items-center justify-center">
+              <div className="flex items-center gap-4 bg-surface/50 p-3 rounded-2xl border border-ink/5 md:bg-transparent md:p-0 md:border-0">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
-                <div>
-                  <div className="text-sm text-ink/60 font-medium">Atendimento</div>
-                  <div className="text-ink font-semibold">100% Digital e Presencial a combinar</div>
+                <div className="min-w-0">
+                  <div className="text-[11px] md:text-sm text-ink/40 font-bold uppercase tracking-wider">Atendimento</div>
+                  <div className="text-ink font-bold text-sm md:text-base">100% Digital / Estúdio RJ</div>
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
-               <span className="text-sm font-medium text-ink/60 uppercase tracking-wider">Acompanhe-nos</span>
+            <div className="flex items-center justify-center lg:justify-start gap-4">
+               <span className="text-[10px] font-bold text-ink/40 uppercase tracking-widest">Siga-nos</span>
                <a 
                  href="https://www.instagram.com/desataassessoria/" 
                  target="_blank" 
                  rel="noopener noreferrer"
-                 className="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all outline-none"
+                 className="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm border border-ink/5"
                >
-                 <Instagram size={18} />
+                 <Instagram size={20} />
                </a>
             </div>
           </div>
 
-          <div className="bg-surface p-8 md:p-10 rounded-[2rem] border border-ink/5 relative">
-             <div className="absolute top-0 right-10 transform -translate-y-1/2 bg-primary text-white text-xs font-bold uppercase tracking-widest py-2 px-4 rounded-full shadow-lg">
-                Fale Especialista
+          <div className="bg-surface p-6 md:p-10 rounded-[2.5rem] border border-ink/5 relative shadow-xl shadow-ink/5">
+             <div className="absolute top-0 left-1/2 md:left-auto md:right-10 transform -translate-x-1/2 md:translate-x-0 -translate-y-1/2 bg-primary text-white text-[10px] md:text-xs font-bold uppercase tracking-widest py-2.5 px-6 rounded-full shadow-lg">
+                Enviar Solicitação
              </div>
              
-             <form onSubmit={handleSubmit} className="space-y-4">
+             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
                <div>
                  <label htmlFor="name" className="block text-sm font-medium text-ink/70 mb-1.5 ml-2">Nome Completo</label>
                  <input 
@@ -108,7 +108,7 @@ export default function Contact() {
                  />
                </div>
                
-               <div className="grid grid-cols-2 gap-4">
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                  <div>
                    <label htmlFor="phone" className="block text-sm font-medium text-ink/70 mb-1.5 ml-2">WhatsApp</label>
                    <input 

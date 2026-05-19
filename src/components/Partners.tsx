@@ -26,22 +26,22 @@ export default function Partners() {
             </a>
           </div>
           
-          <div className="grid grid-cols-2 gap-4">
-             <div className="bg-white/5 backdrop-blur-md p-6 rounded-3xl border border-white/10">
-               <div className="text-4xl font-display font-light text-primary-light mb-2">Agilidade</div>
-               <div className="text-sm text-white/70">Aprovação mais rápida e com menos entraves documentais.</div>
+          <div className="grid grid-cols-2 gap-3 md:gap-4">
+             <div className="bg-white/5 backdrop-blur-md p-4 md:p-6 rounded-[2rem] border border-white/10">
+               <div className="text-xl md:text-4xl font-display font-light text-primary-light mb-1 md:mb-2 leading-tight">Agilidade</div>
+               <div className="text-[11px] md:text-sm text-white/70 leading-relaxed">Aprovação mais rápida e com menos entraves documentais.</div>
              </div>
-             <div className="bg-white/5 backdrop-blur-md p-6 rounded-3xl border border-white/10 translate-y-8">
-               <div className="text-4xl font-display font-light text-primary-light mb-2">Taxa 0 de</div>
-               <div className="text-sm text-white/70">dor de cabeça no repasse para seus clientes.</div>
+             <div className="bg-white/5 backdrop-blur-md p-4 md:p-6 rounded-[2rem] border border-white/10 md:translate-y-8">
+               <div className="text-xl md:text-4xl font-display font-light text-primary-light mb-1 md:mb-2 leading-tight">Taxa 0 de</div>
+               <div className="text-[11px] md:text-sm text-white/70 leading-relaxed">dor de cabeça no repasse para seus clientes.</div>
              </div>
-             <div className="bg-white/5 backdrop-blur-md p-6 rounded-3xl border border-white/10">
-               <div className="text-4xl font-display font-light text-primary-light mb-2">Retenção</div>
-               <div className="text-sm text-white/70">Aumento de vendas concretizadas através de acompanhamento total.</div>
+             <div className="bg-white/5 backdrop-blur-md p-4 md:p-6 rounded-[2rem] border border-white/10">
+               <div className="text-xl md:text-4xl font-display font-light text-primary-light mb-1 md:mb-2 leading-tight">Retenção</div>
+               <div className="text-[11px] md:text-sm text-white/70 leading-relaxed">Aumento de vendas concretizadas através de acompanhamento total.</div>
              </div>
-             <div className="bg-white/5 backdrop-blur-md p-6 rounded-3xl border border-white/10 translate-y-8">
-               <div className="text-4xl font-display font-light text-primary-light mb-2">Segurança</div>
-               <div className="text-sm text-white/70">Processos guiados rigorosamente pelas normas do mercado.</div>
+             <div className="bg-white/5 backdrop-blur-md p-4 md:p-6 rounded-[2rem] border border-white/10 md:translate-y-8">
+               <div className="text-xl md:text-4xl font-display font-light text-primary-light mb-1 md:mb-2 leading-tight">Segurança</div>
+               <div className="text-[11px] md:text-sm text-white/70 leading-relaxed">Processos guiados rigorosamente pelas normas do mercado.</div>
              </div>
           </div>
         </div>
