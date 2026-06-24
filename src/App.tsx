@@ -29,16 +29,8 @@ export default function App() {
           Site em <span className="italic font-light text-primary">manutenção</span>
         </h1>
         <p className="text-ink/70 max-w-md mx-auto leading-relaxed">
-          Estamos realizando atualizações em nosso sistema. Por favor, volte em breve. Para urgências, entre em contato via WhatsApp.
+          Estamos realizando atualizações em nosso sistema. Por favor, volte em breve.
         </p>
-        <a 
-          href="https://api.whatsapp.com/send?phone=5521988758907" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-flex justify-center items-center gap-2 bg-primary hover:bg-primary-light text-white px-8 py-3.5 rounded-full font-medium transition-all shadow-lg"
-        >
-          Falar via WhatsApp
-        </a>
       </div>
     );
   }
